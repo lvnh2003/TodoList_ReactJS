@@ -1,5 +1,5 @@
 import { useState } from "react";
-import initialTasks from "../data";
+import initialTasks from "data";
 
 export default function useTasks() {
   const [tasks, setTasks] = useState(initialTasks);
@@ -12,7 +12,7 @@ export default function useTasks() {
     if (taskValue.trim()) {
       setTasks((prevTasks) => [
         ...prevTasks,
-        { id: prevTasks.length + 1, value: taskValue, isCompleted: false },
+        { id: prevTasks.length ++, value: taskValue, isCompleted: false },
       ]);
     }
     filterData();

@@ -1,3 +1,5 @@
+import checkbox from "components/Image/checkboxall.svg";
+import checkbox_off from "components/Image/checkboxall _off.svg";
 export default function CheckBoxAll({ checked, onToggle }) {
   return (
     <label className="inline-flex items-center cursor-pointer ml-4">
@@ -7,20 +9,12 @@ export default function CheckBoxAll({ checked, onToggle }) {
         onChange={onToggle}
         className="hidden"
       />
-      <span className="">
-        <svg
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke={`${checked ? "black" : "#D1D5DB"}`}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
+      <span>
+        <img
+          src={checked ? checkbox : checkbox_off}
+          alt="checkmark"
+          className="w-5 h-5 ml-1 mt-1"
+        />
       </span>
     </label>
   );

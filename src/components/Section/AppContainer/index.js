@@ -1,17 +1,22 @@
 import { useState } from "react";
-import CheckBoxAll from "../../CheckBoxAll";
+import CheckBoxAll from "components/CheckBoxAll";
 
 function AppContainer({ children, onAddTask, onToggleAll, tasks }) {
+
   const [newTask, setNewTask] = useState("");
+
   function onInputChange(e) {
     setNewTask(e.target.value);
   }
+
   const handleAddTask = (e) => {
     e.preventDefault();
     onAddTask(newTask);
     setNewTask("");
   };
+
   const isAllCompleted = tasks.every((task) => task.isCompleted);
+
   return (
     <>
       <div className="items-center flex flex-col justify-center">
@@ -22,8 +27,8 @@ function AppContainer({ children, onAddTask, onToggleAll, tasks }) {
           className="min-w-[550px] border border-neutral-100 shadow-[0_2px_4px_0_rgba(0,0,0,0.2),0_25px_50px_0_rgba(0,0,0,0.1)] flex flex-col mx-auto my-0 border-solid;
   font-family: Helvetica Neue,sans-serif"
         >
-          <div className="item border-b-[#ededed] border-b border-solid search-place">
-            <div className="">
+          <div className="item border-b-[#ededed] border-b border-solid px-0 py-5">
+            <div>
               <form onSubmit={handleAddTask}>
                 <CheckBoxAll checked={isAllCompleted} onToggle={onToggleAll} />
                 <input
@@ -31,7 +36,7 @@ function AppContainer({ children, onAddTask, onToggleAll, tasks }) {
                   placeholder="What needs to be done?"
                   value={newTask}
                   onChange={onInputChange}
-                  className="ml-0 text-2xl italic"
+                  className="ml-0 text-2xl text-[#dddcdc] pl-5 focus:text-black placeholder:italic focus:outline-none"
                 />
               </form>
             </div>
@@ -42,4 +47,5 @@ function AppContainer({ children, onAddTask, onToggleAll, tasks }) {
     </>
   );
 }
+
 export default AppContainer;

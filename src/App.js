@@ -1,10 +1,12 @@
 import { useState } from "react";
-import "./App.css";
-import Menu from "./components/Section/Body";
-import AppContainer from "./components/Section/Container";
+import Menu from "./components/Section/Menu";
+import AppContainer from "./components/Section/AppContainer";
 import Footer from "./components/Section/Footer";
 import useTasks from "./hook";
+import { TAB_ALL, TAB_ACTIVE, TAB_COMPLETED } from "constant";
+
 export default function App() {
+  
   const {
     tasks,
     addTask,
@@ -14,11 +16,12 @@ export default function App() {
     clearCompletedTasks,
     toggleAllTaskCompletion,
   } = useTasks();
-  const [currentTab, setCurrentTab] = useState("All");
+  
+  const [currentTab, setCurrentTab] = useState(TAB_ALL);
 
   const filteredTasks = tasks.filter((task) => {
-    if (currentTab === "Active") return !task.isCompleted;
-    if (currentTab === "Completed") return task.isCompleted;
+    if (currentTab === TAB_ACTIVE) return !task.isCompleted;
+    if (currentTab === TAB_COMPLETED) return task.isCompleted;
     return true;
   });
 

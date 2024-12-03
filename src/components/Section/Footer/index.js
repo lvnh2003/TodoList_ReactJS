@@ -1,7 +1,7 @@
 function Footer({ remainingTasks, currentTab, onTabChange, onClearCompleted }) {
   return (
     <footer className="flex justify-between items-center px-4 py-2 border-t border-gray-300 text-gray-500 text-sm">
-      <span className="">{remainingTasks} item left</span>
+      <span>{remainingTasks} item left</span>
       <div className="flex space-x-4">
         <button
           className={`px-3 py-1 rounded-md border ${
@@ -34,8 +34,6 @@ function Footer({ remainingTasks, currentTab, onTabChange, onClearCompleted }) {
           Completed
         </button>
       </div>
-
-      {/* Nút Clear completed */}
       <button
         className="text-gray-500 hover:underline"
         onClick={onClearCompleted}

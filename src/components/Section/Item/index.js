@@ -1,5 +1,6 @@
 import { useState } from "react";
-import CheckBox from "../../CheckBox";
+import CheckBox from "components/CheckBox";
+import deleteImg from 'components/Image/delete.svg';
 
 export default function Item({
   id,
@@ -9,6 +10,7 @@ export default function Item({
   onEdit,
   onToggle,
 }) {
+  
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState(value);
 
@@ -27,7 +29,7 @@ export default function Item({
   const handleChange = (e) => setEditValue(e.target.value);
 
   return (
-    <div className="relative border-b border-solid border-[#ededed] task-item text-2xl">
+    <div className="relative border-b border-solid border-[#ededed] text-2xl group">
       <div className="flex items-center">
         <CheckBox checked={isCompleted} onToggle={() => onToggle(id)} />
 
@@ -40,12 +42,12 @@ export default function Item({
                 onChange={handleChange}
                 onBlur={handleSubmit}
                 autoFocus
-                className="border-gray-300 w-full ml-0"
+                className="border-gray-300 w-full ml-0 focus:outline-none"
               />
             </form>
           ) : (
             <p
-              className={isCompleted ? "text-completed ml-0" : "ml-0"}
+              className={isCompleted ? "text-[#d1d1d1] line-through ml-0" : "ml-0"}
               onDoubleClick={handleDoubleClick}
             >
               {value}
@@ -53,27 +55,13 @@ export default function Item({
           )}
         </div>
       </div>
-
+          {/* need to remove cursor when hover */}
       <div className="absolute right-5 top-1/2 transform -translate-y-1/2">
         <button
           onClick={() => onDelete(id)}
-          className="delete-btn p-2 text-red-500 duration-[0.3s] ease-[ease]"
+          className="hidden group-hover:block p-2 text-red-500 duration-[0.3s] ease-[ease]"
         >
-          <svg
-            className="h-6 w-6"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" />
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
+          <img src={deleteImg} alt="delete" className="w-6 h-6 ml-1 mt-1 hover:none" />
         </button>
       </div>
     </div>

@@ -1,7 +1,7 @@
-import Item from "../TaskItem";
+import Item from "components/Section/Item"; 
 
 export default function Menu({ items, onToggle, onDelete, onEdit }) {
-  // export default  function Menu({ items }){
+
   const listItems = items.map((item) => (
     <Item
       key={item.id}
@@ -12,4 +12,5 @@ export default function Menu({ items, onToggle, onDelete, onEdit }) {
     />
   ));
   return <div>{listItems}</div>;
+  
 }
