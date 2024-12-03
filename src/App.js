@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Menu from "./components/Section/Body";
+import AppContainer from "./components/Section/Container";
+import Footer from "./components/Section/Footer";
+import useTasks from "./hook";
+export default function App() {
+  const {
+    tasks,
+    addTask,
+    editTask,
+    deleteTask,
+    toggleTaskCompletion,
+    clearCompletedTasks,
+    toggleAllTaskCompletion,
+  } = useTasks();
+  const [currentTab, setCurrentTab] = useState("All");
 
-function App() {
+  const filteredTasks = tasks.filter((task) => {
+    if (currentTab === "Active") return !task.isCompleted;
+    if (currentTab === "Completed") return task.isCompleted;
+    return true;
+  });
+
+  const remainingTasks = tasks.filter((task) => !task.isCompleted).length;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer
+      onAddTask={addTask}
+      onToggleAll={toggleAllTaskCompletion}
+      tasks={tasks}
+    >
+      <Menu
+        items={filteredTasks}
+        onToggle={toggleTaskCompletion}
+        onDelete={deleteTask}
+        onEdit={editTask}
+      />
+      <Footer
+        remainingTasks={remainingTasks}
+        currentTab={currentTab}
+        onTabChange={setCurrentTab}
+        onClearCompleted={clearCompletedTasks}
+      />
+    </AppContainer>
   );
 }
-
-export default App;
