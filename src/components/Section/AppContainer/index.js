@@ -2,7 +2,6 @@ import { useState } from "react";
 import CheckBoxAll from "components/CheckBoxAll";
 
 function AppContainer({ children, onAddTask, onToggleAll, tasks }) {
-
   const [newTask, setNewTask] = useState("");
 
   function onInputChange(e) {
@@ -19,13 +18,13 @@ function AppContainer({ children, onAddTask, onToggleAll, tasks }) {
 
   return (
     <>
-      <div className="items-center flex flex-col justify-center">
+      <div className="items-center flex flex-col justify-center ">
         <h1 className="text-[rgba(175,47,47,0.15)] text-[100px] font-light text-center">
           todos
         </h1>
         <div
-          className="min-w-[550px] border border-neutral-100 shadow-[0_2px_4px_0_rgba(0,0,0,0.2),0_25px_50px_0_rgba(0,0,0,0.1)] flex flex-col mx-auto my-0 border-solid;
-  font-family: Helvetica Neue,sans-serif"
+          className="has-before min-w-[550px] border border-neutral-100 shadow-[0_2px_4px_0_rgba(0,0,0,0.2),0_25px_50px_0_rgba(0,0,0,0.1)] flex flex-col mx-auto my-0 border-solid;
+  font-family: Helvetica Neue,sans-serif relative"
         >
           <div className="item border-b-[#ededed] border-b border-solid px-0 py-5">
             <div>
@@ -43,6 +42,10 @@ function AppContainer({ children, onAddTask, onToggleAll, tasks }) {
           </div>
           <div className="item">{children}</div>
         </div>
+      </div>
+      <div className="text-center text-gray-400 text-xs mt-4 p-12">
+        <p>Double click to edit task</p>
+        <p>Todolist ReactJS</p>
       </div>
     </>
   );

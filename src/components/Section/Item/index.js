@@ -59,7 +59,7 @@ export default function Item({
       <div className="absolute right-5 top-1/2 transform -translate-y-1/2">
         <button
           onClick={() => onDelete(id)}
-          className="hidden group-hover:block p-2 text-red-500 duration-[0.3s] ease-[ease]"
+          className="hidden group-hover:block p-2 text-red-500 duration-[0.3s] ease-[ease] cursor-default"
         >
           <img src={deleteImg} alt="delete" className="w-6 h-6 ml-1 mt-1 hover:none" />
         </button>
