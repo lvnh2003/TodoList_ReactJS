@@ -1,3 +1,5 @@
+import { TAB_ACTIVE, TAB_ALL, TAB_COMPLETED } from "constant";
+
 function Footer({ remainingTasks, currentTab, onTabChange, onClearCompleted }) {
   return (
     <footer className="flex justify-between items-center px-4 py-2 border-t border-gray-300 text-gray-500 text-sm">
@@ -9,7 +11,7 @@ function Footer({ remainingTasks, currentTab, onTabChange, onClearCompleted }) {
               ? "border-red-200 text-gray-900"
               : "border-transparent"
           }`}
-          onClick={() => onTabChange("All")}
+          onClick={() => onTabChange(TAB_ALL)}
         >
           All
         </button>
@@ -19,7 +21,7 @@ function Footer({ remainingTasks, currentTab, onTabChange, onClearCompleted }) {
               ? "border-red-200 text-gray-900"
               : "border-transparent"
           }`}
-          onClick={() => onTabChange("Active")}
+          onClick={() => onTabChange(TAB_ACTIVE)}
         >
           Active
         </button>
@@ -29,7 +31,7 @@ function Footer({ remainingTasks, currentTab, onTabChange, onClearCompleted }) {
               ? "border-red-200 text-gray-900"
               : "border-transparent"
           }`}
-          onClick={() => onTabChange("Completed")}
+          onClick={() => onTabChange(TAB_COMPLETED)}
         >
           Completed
         </button>
