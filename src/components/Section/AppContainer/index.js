@@ -35,7 +35,7 @@ function AppContainer({ children, onAddTask, onToggleAll, tasks }) {
                   placeholder="What needs to be done?"
                   value={newTask}
                   onChange={onInputChange}
-                  className="ml-0 text-2xl text-[#dddcdc] pl-5 focus:text-black placeholder:italic focus:outline-none"
+                  className="ml-0 text-2xl text-[#F6F6F6] pl-5 focus:text-black placeholder:italic focus:outline-none"
                 />
               </form>
             </div>

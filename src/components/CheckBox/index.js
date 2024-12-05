@@ -1,7 +1,7 @@
 import checkbox from "components/Image/checkbox.svg";
 export default function CheckBox({ checked, onToggle }) {
   return (
-    <label className="inline-flex items-center cursor-pointer ml-3">
+    <label className="inline-flex items-center cursor-pointer ml-3 group-focus-within:opacity-0">
       <input
         type="checkbox"
         checked={checked}
