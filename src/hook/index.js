@@ -10,14 +10,16 @@ export default function useTasks() {
 
   const addTask = (taskValue) => {
     if (taskValue.trim()) {
-      setTasks((prevTasks) => [
-        ...prevTasks,
-        { id: prevTasks.length ++, value: taskValue, isCompleted: false },
-      ]);
+      setTasks((prevTasks) => {
+        const lastTaskId = prevTasks.length > 0 ? prevTasks[prevTasks.length - 1].id : -1;
+        return [
+          ...prevTasks,
+          { id: lastTaskId + 1, value: taskValue, isCompleted: false },
+        ];
+      });
     }
-    filterData();
   };
-
+  
   const editTask = (taskId, taskValue) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
