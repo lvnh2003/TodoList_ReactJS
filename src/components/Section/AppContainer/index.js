@@ -18,7 +18,7 @@ function AppContainer({ children, onAddTask, onToggleAll, tasks }) {
 
   return (
     <>
-      <div className="items-center flex flex-col justify-center ">
+      <div className="items-center flex flex-col justify-center select-none">
         <h1 className="text-[rgba(175,47,47,0.15)] text-[100px] font-light text-center">
           todos
         </h1>
