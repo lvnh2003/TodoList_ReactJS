@@ -31,7 +31,7 @@ export default function Item({
     <div className="relative border-b border-solid border-[#ededed] text-2xl group p-5">
       <div className="flex items-center">
         <CheckBox checked={isCompleted} onToggle={() => onToggle(id)} />
-        <div className="flex-1 p-4 relative" onDoubleClick={handleDoubleClick}>
+        <div className="flex-1 p-4 relative select-none" onDoubleClick={handleDoubleClick}>
           {isEditing ? (
             <form onSubmit={handleSubmit}>
               <input
