@@ -26,7 +26,7 @@ function AppContainer({ children, onAddTask, onToggleAll, tasks }) {
           className="has-before min-w-[550px] border border-neutral-100 shadow-[0_2px_4px_0_rgba(0,0,0,0.2),0_25px_50px_0_rgba(0,0,0,0.1)] flex flex-col mx-auto my-0 border-solid;
   font-family: Helvetica Neue,sans-serif relative"
         >
-          <div className="item border-b-[#ededed] border-b border-solid px-0 py-5">
+          <div className="item border-b-[#ededed] border-b border-solid py-5 pl-5">
             <div>
               <form onSubmit={handleAddTask}>
                 <CheckBoxAll checked={isAllCompleted} onToggle={onToggleAll} />
@@ -35,7 +35,7 @@ function AppContainer({ children, onAddTask, onToggleAll, tasks }) {
                   placeholder="What needs to be done?"
                   value={newTask}
                   onChange={onInputChange}
-                  className="ml-0 text-2xl text-[#F6F6F6] pl-5 focus:text-black placeholder:italic focus:outline-none"
+                  className="ml-0 text-2xl text-[#F6F6F6] pl-5 focus:text-black placeholder:italic pl-[35px] focus:outline-none"
                 />
               </form>
             </div>
